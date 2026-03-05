@@ -1,5 +1,6 @@
 \section{Probability Theory}
 
+
 Let $X$ be a \textbf{discrete random} variable with probability $p_X(x)$ of assuming the value $x$.
 
 It will then have an \textbf{expected value} (mean) $\mu=\mathbb{E}(X)=\sum_xxp_X(x)$
@@ -14,12 +15,6 @@ Expectation is linear:
 For independent $X$ and $Y$, \[V(aX+bY) = a^2V(X)+b^2V(Y).\]
 
 \subsection{Discrete distributions}
-
-\subsubsection{Binomial distribution}
-The number of successes in $n$ independent yes/no experiments, each which yields success with probability $p$ is $\textrm{Bin}(n,p),\,n=1,2,\dots,\, 0\leq p\leq1$.
-\[p(k)=\binom{n}{k}p^k(1-p)^{n-k}\]
-\[\mu = np,\,\sigma^2=np(1-p)\]
-$\textrm{Bin}(n,p)$ is approximately $\textrm{Po}(np)$ for small $p$.
 
 \subsubsection{First success distribution}
 The number of trials needed to get the first success in independent yes/no experiments, each which yields success with probability $p$ is $\textrm{Fs}(p),\,0\leq p\leq1$.
@@ -84,3 +79,5 @@ The expected time until absorption, when the initial state is $i$, is $t_i = 1+\
 
 
 \input{content/probability_theory/monty_hall.tex}
+
+\input{content/probability_theory/binomial_distribution.tex}
