@@ -1,0 +1,57 @@
+\subsection{Euler's Theorem}
+
+\subsubsection{Statement}
+
+Let $a$ and $n$ be positive integers with $\gcd(a, n) = 1$. Then:
+
+\begin{equation}
+    a^{\varphi(n)} \equiv 1 \pmod{n}
+\end{equation}
+
+where $\varphi(n)$ is Euler's totient function, which counts the number of integers from $1$ to $n$ that are coprime to $n$.
+
+\subsubsection{Euler's Totient Function}
+
+The totient function $\varphi(n)$ has several important properties:
+
+\textbf{For prime powers:}
+\begin{equation}
+    \varphi(p^k) = p^{k-1}(p-1) = p^k - p^{k-1}
+\end{equation}
+
+\textbf{Multiplicative property:} If $\gcd(m,n) = 1$, then:
+\begin{equation}
+    \varphi(mn) = \varphi(m) \cdot \varphi(n)
+\end{equation}
+
+\textbf{General formula:} For $n = p_1^{k_1} p_2^{k_2} \cdots p_r^{k_r}$:
+\begin{equation}
+    \varphi(n) = n \prod_{p \mid n} \left(1 - \frac{1}{p}\right) = n \prod_{i=1}^{r} \left(1 - \frac{1}{p_i}\right)
+\end{equation}
+
+\subsubsection{Applications}
+
+\textbf{Modular exponentiation:}
+
+When computing $a^b \pmod{n}$ with $\gcd(a,n) = 1$, we can reduce the exponent:
+\begin{equation}
+    a^b \equiv a^{b \bmod \varphi(n)} \pmod{n}
+\end{equation}
+
+This is particularly useful when $b$ is very large.
+
+\textbf{Modular multiplicative inverse:}
+
+If $\gcd(a,n) = 1$, then:
+\begin{equation}
+    a^{-1} \equiv a^{\varphi(n)-1} \pmod{n}
+\end{equation}
+
+\textbf{Computing $a^{b^c} \pmod{n}$:}
+
+When $\gcd(a,n) = 1$:
+\begin{equation}
+    a^{b^c} \equiv a^{b^c \bmod \varphi(n)} \pmod{n}
+\end{equation}
+
+First compute $e = b^c \bmod \varphi(n)$, then compute $a^e \bmod n$.
