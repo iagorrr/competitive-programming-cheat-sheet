@@ -1,0 +1,42 @@
+\subsection{Tower of Hanoi}
+
+The Tower of Hanoi is a classic mathematical puzzle consisting of three pegs and $n$ disks of different sizes.
+
+\subsubsection{Rules}
+
+\begin{itemize}
+    \item Only one disk can be moved at a time
+    \item A disk can only be placed on top of a larger disk or on an empty peg
+    \item All disks start on one peg and must be moved to another peg
+\end{itemize}
+
+\subsubsection{Minimum Number of Moves}
+
+The minimum number of moves required to transfer $n$ disks from one peg to another is:
+
+\begin{equation}
+    T(n) = 2^n - 1
+\end{equation}
+
+\subsubsection{Recursive Strategy}
+
+To move $n$ disks from peg $A$ to peg $C$ using auxiliary peg $B$:
+
+\begin{enumerate}
+    \item Move $n-1$ disks from $A$ to $B$ (using $C$ as auxiliary)
+    \item Move the largest disk from $A$ to $C$
+    \item Move $n-1$ disks from $B$ to $C$ (using $A$ as auxiliary)
+\end{enumerate}
+
+\subsubsection{Connection to Binary Numbers}
+
+The sequence of moves corresponds to the binary representation of integers from $1$ to $2^n - 1$:
+
+\begin{itemize}
+    \item Disk $i$ (counting from 1 at the top) moves when the $i$-th bit changes in the binary counter
+    \item The solution follows Gray code sequence
+\end{itemize}
+
+\subsubsection{Generalization: Scrambled Initial State}
+
+If the disks start in an arbitrary valid configuration (not necessarily all on one peg), the problem becomes more complex but can still be solved recursively by considering the position of each disk.

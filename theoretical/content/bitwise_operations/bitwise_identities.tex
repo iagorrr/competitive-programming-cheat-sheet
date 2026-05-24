@@ -1,0 +1,79 @@
+\subsection{Bitwise Identities}
+
+\subsubsection{Arithmetic Identities}
+
+\textbf{Sum using AND and OR:}
+\begin{equation}
+    a + b = (a \& b) + (a | b)
+\end{equation}
+
+\textbf{Sum using XOR and AND:}
+\begin{equation}
+    a + b = (a \oplus b) + 2(a \& b)
+\end{equation}
+
+\textbf{XOR using AND and OR:}
+\begin{equation}
+    a \oplus b = \sim(a \& b) \& (a | b)
+\end{equation}
+
+\subsubsection{Bit Manipulation Operations}
+
+Let $x$ denote the bit position (0-indexed from the right).
+
+\textbf{Set (turn on) the $x$-th bit:}
+\begin{equation}
+    n \mid (1 \ll x)
+\end{equation}
+
+\textbf{Flip (toggle) the $x$-th bit:}
+\begin{equation}
+    n \oplus (1 \ll x)
+\end{equation}
+
+\textbf{Clear (turn off) the $x$-th bit:}
+\begin{equation}
+    n \& \sim(1 \ll x)
+\end{equation}
+
+\textbf{Check if the $x$-th bit is set:}
+\begin{equation}
+    n \& (1 \ll x) \neq 0
+\end{equation}
+
+\subsubsection{Useful Tricks}
+
+\textbf{Clear all trailing ones:}
+\begin{equation}
+    n \& (n + 1)
+\end{equation}
+
+Example: $0011\ 0111 \rightarrow 0011\ 0000$
+
+\textbf{Set the rightmost zero bit:}
+\begin{equation}
+    n | (n + 1)
+\end{equation}
+
+Example: $0011\ 0101 \rightarrow 0011\ 0111$
+
+\textbf{Isolate the least significant bit (LSB):}
+\begin{equation}
+    n \& (-n)
+\end{equation}
+
+Example: $0011\ 0100 \rightarrow 0000\ 0100$
+
+\textbf{Remove the least significant bit:}
+\begin{equation}
+    n \& (n - 1)
+\end{equation}
+
+Example: $0011\ 0100 \rightarrow 0011\ 0000$
+
+\textbf{Check if $n$ is a power of 2:}
+\begin{equation}
+    (n \& (n - 1)) = 0 \quad \text{and} \quad n \neq 0
+\end{equation}
+
+Powers of 2 have exactly one bit set in their binary representation.

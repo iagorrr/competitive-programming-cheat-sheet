@@ -1,0 +1,58 @@
+\subsection{Cayley's Formula}
+
+Cayley's Formula counts the number of distinct labeled trees on $n$ vertices.
+
+\subsubsection{Statement}
+
+The number of labeled trees with $n$ vertices is:
+
+\begin{equation}
+    n^{n-2}
+\end{equation}
+
+\subsubsection{Special Cases}
+
+\begin{center}
+\begin{tabular}{c|c|c}
+$n$ & $n^{n-2}$ & Trees \\
+\hline
+1 & $1^{-1} = 1$ & 1 \\
+2 & $2^0 = 1$ & 1 \\
+3 & $3^1 = 3$ & 3 \\
+4 & $4^2 = 16$ & 16 \\
+5 & $5^3 = 125$ & 125 \\
+6 & $6^4 = 1296$ & 1296 \\
+\end{tabular}
+\end{center}
+
+\subsubsection{Prüfer Code}
+
+Cayley's Formula can be proven using the Prüfer code, which establishes a bijection between:
+
+\begin{itemize}
+    \item Labeled trees with $n$ vertices
+    \item Sequences of length $n-2$ with elements from $\{1, 2, \ldots, n\}$
+\end{itemize}
+
+There are exactly $n^{n-2}$ such sequences.
+
+\subsubsection{Generalizations}
+
+\textbf{Forests:} The number of labeled forests with $n$ vertices and $k$ trees is:
+
+\begin{equation}
+    k \cdot n^{n-k-1}
+\end{equation}
+
+\textbf{Spanning trees:} For a complete graph $K_n$, the number of spanning trees equals $n^{n-2}$ (which is Cayley's Formula).
+
+\subsubsection{Applications}
+
+Cayley's Formula is used in:
+
+\begin{itemize}
+    \item Counting problems involving labeled trees
+    \item Graph enumeration
+    \item Network design and reliability analysis
+    \item Combinatorial optimization
+\end{itemize}

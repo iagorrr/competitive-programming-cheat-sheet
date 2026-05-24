@@ -1,0 +1,55 @@
+\subsection{Distance Metrics}
+
+Different distance metrics are used depending on the problem context. For two points $P = (P_x, P_y)$ and $Q = (Q_x, Q_y)$:
+
+\subsubsection{Euclidean Distance}
+
+The standard distance in the Euclidean plane:
+
+\begin{equation}
+    d_2(P, Q) = \sqrt{(P_x - Q_x)^2 + (P_y - Q_y)^2}
+\end{equation}
+
+This is the length of the straight line segment connecting the two points.
+
+\subsubsection{Manhattan Distance}
+
+Also known as taxicab distance or $L_1$ distance:
+
+\begin{equation}
+    d_1(P, Q) = |P_x - Q_x| + |P_y - Q_y|
+\end{equation}
+
+This represents the distance when movement is restricted to horizontal and vertical directions (like moving in a city grid).
+
+\subsubsection{Chebyshev Distance}
+
+Also known as chessboard distance or $L_\infty$ distance:
+
+\begin{equation}
+    d_\infty(P, Q) = \max(|P_x - Q_x|, |P_y - Q_y|)
+\end{equation}
+
+This represents the minimum number of moves a king needs to travel between two squares on a chessboard.
+
+\subsubsection{Relationships Between Metrics}
+
+For any two points $P$ and $Q$:
+
+\begin{equation}
+    d_\infty(P, Q) \leq d_2(P, Q) \leq d_1(P, Q) \leq 2 \cdot d_\infty(P, Q)
+\end{equation}
+
+\subsubsection{Coordinate Transformation}
+
+Manhattan and Chebyshev distances can be converted through a 45° rotation:
+
+\textbf{Manhattan $\rightarrow$ Chebyshev:}
+
+Transform coordinates $(x, y) \mapsto (x + y, x - y)$
+
+\textbf{Chebyshev $\rightarrow$ Manhattan:}
+
+Transform coordinates $(x, y) \mapsto \left(\frac{x+y}{2}, \frac{x-y}{2}\right)$
+
+This transformation is useful when a problem naturally uses one metric but is easier to solve with the other.

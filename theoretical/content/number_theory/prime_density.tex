@@ -1,0 +1,42 @@
+\subsection{Prime Density}
+
+\subsubsection{Prime Counting Function}
+
+The prime counting function $\pi(n)$ denotes the number of prime numbers less than or equal to $n$.
+
+\subsubsection{Prime Number Theorem}
+
+The Prime Number Theorem provides an asymptotic approximation for $\pi(n)$:
+
+\begin{equation}
+    \pi(n) \sim \frac{n}{\ln(n)}
+\end{equation}
+
+More precisely:
+\begin{equation}
+    \lim_{n \to \infty} \frac{\pi(n)}{n/\ln(n)} = 1
+\end{equation}
+
+\subsubsection{Better Approximations}
+
+A more accurate approximation is given by the logarithmic integral:
+
+\begin{equation}
+    \pi(n) \sim \text{Li}(n) = \int_2^n \frac{dt}{\ln(t)}
+\end{equation}
+
+For practical purposes, the following approximation is also useful:
+
+\begin{equation}
+    \pi(n) \approx \frac{n}{\ln(n) - 1} \quad \text{for } n \geq 17
+\end{equation}
+
+\subsubsection{Asymptotic Density}
+
+The probability that a random integer near $n$ is prime is approximately $\frac{1}{\ln(n)}$.
+
+The $n$-th prime number $p_n$ can be approximated by:
+
+\begin{equation}
+    p_n \sim n \ln(n)
+\end{equation}
