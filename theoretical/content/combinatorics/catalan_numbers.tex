@@ -1,0 +1,82 @@
+\subsection{Catalan Numbers}
+
+Catalan numbers form a sequence of natural numbers that occur in various counting problems, often involving recursively defined objects.
+
+The $n$-th Catalan number is denoted as $C_n$ and the sequence begins: $1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796, \ldots$
+
+\subsubsection{Formulas}
+
+\textbf{Explicit formula:}
+\[ C_n = \frac{1}{n+1}\binom{2n}{n} = \frac{(2n)!}{(n+1)!n!} \]
+
+\textbf{Alternative formula:}
+\[ C_n = \binom{2n}{n} - \binom{2n}{n+1} \]
+
+\textbf{Recurrence relation:}
+\[ C_0 = 1, \quad C_{n+1} = \sum_{i=0}^{n} C_i C_{n-i} \]
+
+\textbf{Another recurrence:}
+\[ C_0 = 1, \quad C_n = \frac{2(2n-1)}{n+1}C_{n-1} \]
+
+\subsubsection{Applications}
+
+The Catalan numbers count:
+
+\begin{itemize}
+    \item \textbf{Valid parentheses expressions:} Number of ways to correctly match $n$ pairs of parentheses.
+
+    \textit{Example:} For $n=3$: ((())), (()()), (())(), ()(()), ()()()
+
+    \item \textbf{Binary trees:} Number of different binary trees with $n$ internal nodes.
+
+    \item \textbf{Full binary trees:} Number of full binary trees with $n+1$ leaves (or $2n+1$ nodes total).
+
+    \item \textbf{Rooted trees:} $C_{n-1}$ is the number of different rooted trees with $n$ vertices.
+
+    \item \textbf{Grid paths:} Number of monotonic lattice paths from $(0,0)$ to $(n,n)$ that do not pass above the diagonal $y = x$.
+
+    \item \textbf{Polygon triangulations:} Number of ways to triangulate a convex polygon with $n+2$ sides using non-crossing diagonals.
+
+    \item \textbf{Mountain ranges:} Number of ways to draw $n$ upstrokes and $n$ downstrokes that form a mountain range (never going below the starting height).
+\end{itemize}
+
+\subsubsection{Geometric Interpretation}
+
+For the grid path problem: we want paths from $(0,0)$ to $(n,n)$ using only right $(R)$ and up $(U)$ moves, with the constraint that at any point the number of $U$ moves does not exceed the number of $R$ moves.
+
+\textbf{Total paths without restriction:} $\binom{2n}{n}$ (choose $n$ positions for $R$ moves among $2n$ total moves).
+
+\textbf{Invalid paths:} Those that cross the line $y = x + 1$ can be reflected across this line. Any path crossing this line corresponds bijectively to a path from $(0,0)$ to $(n-1, n+1)$, which has $\binom{2n}{n+1}$ paths.
+
+\textbf{Valid paths (Catalan numbers):}
+\[ C_n = \binom{2n}{n} - \binom{2n}{n+1} = \frac{1}{n+1}\binom{2n}{n} \]
+
+This is known as the \textbf{Reflection Principle} or \textbf{Cycle Lemma}.
+
+\subsubsection{Generalization}
+
+For paths from $(0,0)$ to $(m,n)$ that stay below (or on) the line $y = x + k$:
+
+\[ \text{Number of valid paths} = \binom{m+n}{n} - \binom{m+n}{n+k+1} \]
+
+where $m$ is the number of "opening" elements and $n$ is the number of "closing" elements, and $k$ represents how many elements can be "opened" initially.
+
+\subsubsection{First Catalan Numbers}
+
+\begin{center}
+\begin{tabular}{c|c}
+$n$ & $C_n$ \\
+\hline
+0 & 1 \\
+1 & 1 \\
+2 & 2 \\
+3 & 5 \\
+4 & 14 \\
+5 & 42 \\
+6 & 132 \\
+7 & 429 \\
+8 & 1430 \\
+9 & 4862 \\
+10 & 16796 \\
+\end{tabular}
+\end{center}
