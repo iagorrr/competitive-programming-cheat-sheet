@@ -1,8 +1,18 @@
-# Build theoretical document (requires running twice)
-build:
-    @cd theoretical && \
-    lualatex theoretical.tex && \
-    lualatex theoretical.tex
+# Check Typst compilation without producing output
+check:
+    @typst compile --root . cheatsheet/main.typ /tmp/check.pdf && rm -f /tmp/check.pdf
 
+# Build PDF
+build:
+    @typst compile --root . cheatsheet/main.typ cheatsheet.pdf
+
+# Watch mode - auto-rebuild on file changes
+watch:
+    @typst watch --root . cheatsheet/main.typ cheatsheet.pdf
+
+# Open compiled PDF
 open:
-    open theoretical/theoretical.pdf
+    @xdg-open cheatsheet.pdf
+
+# Run check then build
+all: check build

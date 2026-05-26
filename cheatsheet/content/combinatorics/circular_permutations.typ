@@ -1,0 +1,5 @@
+== Circular permutations
+
+The number of ways to arrange n distinct objects along a fixed (i.e., cannot be picked up out of the plane and turned over) circle is
+
+$ P_n=(n-1)! $

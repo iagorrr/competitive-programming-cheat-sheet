@@ -1,5 +1,8 @@
-# latex build garbage
-theoretical/theoretical.aux
-theoretical/theoretical.log
-theoretical/theoretical.toc
-theoretical/theoretical.out
+# LaTeX build artifacts (legacy)
+*.aux
+*.log
+*.toc
+*.out
+
+# Typst output
+cheatsheet.pdf

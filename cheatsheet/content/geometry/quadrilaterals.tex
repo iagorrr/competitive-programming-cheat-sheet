@@ -1,0 +1,19 @@
+\subsection{Quadrilaterals}
+
+Let its side lengths be $a, b, c, d$.
+
+\subsubsection{Area (Bretschneider's Formula)}
+
+For a general quadrilateral with sides $a, b, c, d$ and diagonals $p, q$, the area can be computed using Bretschneider's formula:
+
+\[
+\text{Area} = \sqrt{(s-a)(s-b)(s-c)(s-d) - abcd \cdot \cos^2\left(\frac{\alpha + \gamma}{2}\right)}
+\]
+
+where $s = \frac{a+b+c+d}{2}$ is the semiperimeter, and $\alpha$ and $\gamma$ are opposite angles.
+
+For a cyclic quadrilateral (inscribed in a circle), $\alpha + \gamma = 180^\circ$, so this simplifies to Brahmagupta's formula:
+
+\[
+\text{Area} = \sqrt{(s-a)(s-b)(s-c)(s-d)}
+\]

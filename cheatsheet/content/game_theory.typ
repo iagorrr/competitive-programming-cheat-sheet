@@ -1,0 +1,33 @@
+= Game Theory
+
+== Impartial Games
+
+To be considered an impartial game following rules must be true:
+
++ The available moves win/loss depends only on the state of the game, in other words, the only difference between the two players is that one of them moves first
++ Additionally, we assume that the game has perfect information, i.e. no information is hidden from the players (they know the rules and the possible moves).
++ It is assumed that the game is finite, i.e. after a certain number of moves, one of the players will end up in a losing position — from which they can't move to another position. On the other side, the player who set up this position for the opponent wins. Understandably, there are no draws in this game.
+
+Such games can be completely described by a directed acyclic graph: the vertices are game states and the edges are transitions (moves). A vertex without outgoing edges is a losing vertex (a player who must make a move from this vertex loses).
+
+Since there are no draws, we can classify all game states as either winning or losing. Winning states are those from which there is a move that causes inevitable defeat of the other player, even with their best response. Losing states are those from which all moves lead to winning states for the other player. Summarizing, a state is winning if there is at least one transition to a losing state and is losing if there isn't at least one transition to a losing state.
+
+Our task is to classify the states of a given game.
+
+== Sprague-Grundy Theorem
+
+The Sprague-Grundy Theorem states that every impartial game is equivalent to a pile of a certain size in Nim. In other words, every impartial game can be solved as Nim by finding their corresponding game.
+
+Basically, for a game situation $A$ and its $S G$ function value $g(A)$:
+
++ $g(A) = 0$ if and only if $A$ is a must-lose situation. Otherwise, $g(A) in ZZ^*$
++ If $A$ can be divided into $n$ sub-situations $x_1, x_2, dots, x_n$, then $g(A) = g(x_1) xor g(x_2) xor dots xor g(x_n)$
++ If $A$ can be converted to situation $B_1$ or $B_2$ or ... or $B_n$ by only one operation, then $g(A) = op("mex")(g(B_1), g(B_2), dots, g(B_n))$.
+
+== Nim variation Subtract game
+
+Work just like nim but instead of removing any number of objects you can remove at most $K$, this game can be seen as a nim game but before computing the nim-sum you need to take the size of each pile modulo $K+1$, the optimal way to play it is by taking $K$ at each turn.
+
+== Tweedledum-Tweedledee
+
+The Tweedledum-Tweedledee strategy is a copycat strategy in symmetrical games where the second player mirrors the first player's moves to guarantee a win.
