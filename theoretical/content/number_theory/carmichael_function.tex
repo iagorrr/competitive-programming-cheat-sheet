@@ -1,0 +1,52 @@
+\subsection{Carmichael function}
+
+The Carmichael function $\lambda(n)$ is the smallest positive integer $m$ such that
+
+\begin{equation}
+    a^{m} \equiv 1 \pmod{n}
+\end{equation}
+
+holds for every integer $a$ coprime to $n$. In other words, it is the exponent of the
+multiplicative group of integers modulo $n$.
+
+\subsubsection{Computation from the prime factorization}
+
+For a prime power $p^{r}$,
+
+\begin{equation}
+    \lambda(p^{r}) =
+    \begin{cases}
+        \tfrac{1}{2}\varphi(p^{r}) & \text{if } p = 2 \text{ and } r \geq 3, \\
+        \varphi(p^{r})             & \text{otherwise,}
+    \end{cases}
+\end{equation}
+
+where $\varphi(p^{r}) = p^{r-1}(p-1)$. For a general $n = p_1^{r_1} p_2^{r_2} \cdots p_k^{r_k}$,
+
+\begin{equation}
+    \lambda(n) = \operatorname{lcm}\left( \lambda(p_1^{r_1}),\, \lambda(p_2^{r_2}),\, \ldots,\, \lambda(p_k^{r_k}) \right).
+\end{equation}
+
+\subsubsection{Relation to Euler's totient}
+
+Since $\lambda(n)$ is the exponent of the multiplicative group modulo $n$ while
+$\varphi(n)$ is its order,
+
+\begin{equation}
+    \lambda(n) \mid \varphi(n).
+\end{equation}
+
+\subsubsection{Example}
+
+For $n = 8$ we have $\varphi(8) = 4$ but $\lambda(8) = 2$ (the special case for powers of
+$2$). Indeed $1^{2} \equiv 3^{2} \equiv 5^{2} \equiv 7^{2} \equiv 1 \pmod{8}$.
+
+\subsubsection{First values}
+
+\begin{center}
+\begin{tabular}{c|cccccccccccccccc}
+$n$           & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 \\
+\hline
+$\lambda(n)$  & 1 & 1 & 2 & 2 & 4 & 2 & 6 & 2 & 6 & 4  & 10 & 2  & 12 & 6  & 4  & 4
+\end{tabular}
+\end{center}
