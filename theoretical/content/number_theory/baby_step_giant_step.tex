@@ -1,0 +1,52 @@
+\subsection{Baby-step giant-step}
+
+A meet-in-the-middle algorithm for solving the discrete logarithm problem: given a
+cyclic group $G$ of order $n$, a generator $\alpha$ and an element $\beta$, find an
+integer $x$ such that
+
+\begin{equation}
+    \alpha^{x} = \beta.
+\end{equation}
+
+\subsubsection{Idea}
+
+Let $m = \lceil \sqrt{n} \rceil$. Any exponent $0 \leq x < n$ can be written as
+
+\begin{equation}
+    x = im + j, \qquad 0 \leq i < m, \quad 0 \leq j < m.
+\end{equation}
+
+Substituting into $\alpha^{x} = \beta$ gives
+
+\begin{equation}
+    \alpha^{im + j} = \beta \iff \alpha^{j} = \beta \left( \alpha^{-m} \right)^{i}.
+\end{equation}
+
+We precompute every \emph{baby step} $\alpha^{j}$ and store it in a hash table, then
+take \emph{giant steps} of size $m$ multiplying $\beta$ by $\alpha^{-m}$ until a match
+is found.
+
+\subsubsection{Algorithm}
+
+\begin{enumerate}
+  \item $m \gets \lceil \sqrt{n} \rceil$.
+  \item For all $j$ with $0 \leq j < m$, compute $\alpha^{j}$ and store the pair
+        $(\alpha^{j}, j)$ in a table.
+  \item Compute $\alpha^{-m}$.
+  \item $\gamma \gets \beta$.
+  \item For all $i$ with $0 \leq i < m$:
+    \begin{enumerate}
+      \item If $\gamma$ is in the table as $\alpha^{j}$, return $x = im + j$.
+      \item Otherwise, $\gamma \gets \gamma \cdot \alpha^{-m}$.
+    \end{enumerate}
+\end{enumerate}
+
+\subsubsection{Complexity}
+
+\begin{equation}
+    \text{Time } O(\sqrt{n}), \qquad \text{Space } O(\sqrt{n}),
+\end{equation}
+
+using a hash table for the lookups. It is a generic algorithm that works for any finite
+cyclic group and does not require knowing the exact order in advance. For groups of
+composite order, Pohlig-Hellman is usually faster.
