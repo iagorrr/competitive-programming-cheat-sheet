@@ -25,9 +25,12 @@ Properties:
   \item The tree formed contains all the $N$ nodes.
   \item The height of the centroid decomposition is $O()\log{N})$.
   \item Let $A$ and $B$ be two arbitrary nodes, let $C$ be the $LCA(A,B)$ in the centroid decomposition tree.
-    \subitem $C$ lies on the path from $A$ to $B$ in the original tree.
-    \subitem Every path in the tree can be decomposed in $A$ to $C$, and $C$ to $B$.
+    \subitem $C$ lies on the path from $A$ to $B$ in the original tree. So every path in the tree can be decomposed in $A$ to $C$, and $C$ to $B$.
     \subitem As the height of the tree is $O(\log{N})$ the $LCA$ can be found in $O(\log{N})$ (just like with binary lifting)
+  \item We can represent all possible paths in the original tree (there are 
+    $n^2$ paths) as a concatenation of two paths in a $O(n \log n)$ set composed of 
+    paths like this: (u,fa(u)),(u,fa(fa(u))),… for all possible u .
+
 \end{itemize}
 
 Example:
